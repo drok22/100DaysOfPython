@@ -1,7 +1,3 @@
-from prettytable import PrettyTable
-
-table = PrettyTable()
-
 MENU = {
     "espresso": {
         "ingredients": {
