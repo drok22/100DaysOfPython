@@ -1,4 +1,6 @@
 '''
+# Used to get the color data used to create the 'random' dots from 'image.jpeg'
+
 import colorgram
 
 rgb_colors = []
