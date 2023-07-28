@@ -2,13 +2,13 @@ from turtle import Turtle
 
 ALIGNMENT = "center"
 FONT = ("Courier", 24, "normal")
-
+HIGH_SCORE_PATH = "Snake/high_score.txt"
 
 class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        with open("Snake/high_score.txt") as data:
+        with open(HIGH_SCORE_PATH) as data:
             self.high_score = int(data.read())
         self.hideturtle()
         self.penup()
@@ -48,7 +48,11 @@ class Scoreboard(Turtle):
         self.update_scoreboard()        
 
     def game_over(self):
-        self.goto(0,0)
+        if self.score > self.high_score:
+            self.goto(0, 80)
+            self.write("NEW HIGH SCORE!!!", align = ALIGNMENT, font = FONT)
+            
+        self.goto(0,20)
         self.write("GAME OVER", align = ALIGNMENT, font = FONT)
         self.goto(0,-20)
         self.write("PRESS SPACE TO PLAY AGAIN", align = ALIGNMENT, font = FONT)

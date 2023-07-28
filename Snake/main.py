@@ -41,6 +41,7 @@ def start_game():
             snake.extend()
 
         if snake.head.xcor() > MAXCOR or snake.head.xcor() < MINCOR or snake.head.ycor() > MAXCOR or snake.head.ycor() < MINCOR:
+            #FIXME: upon getting a high score, the score is being set to 0 before game_over checks if there was a new high score.
             scoreboard.reset()
             snake.reset()
             game_over = True

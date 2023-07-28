@@ -24,9 +24,9 @@ class Scoreboard(Turtle):
         self.write(self.right_score, align = ALIGNMENT, font = FONT)
 
     def left_scored(self):
-        self.right_score += 1
+        self.left_score += 1
         self.update_scoreboard()
 
     def right_scored(self):
-        self.left_score += 1
+        self.right_score += 1
         self.update_scoreboard()
