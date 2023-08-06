@@ -79,6 +79,15 @@ def play_blackjack():
     print(compare_score(user_score, dealer_score))
 
 #---------------------------------------------------------
-while input("Play a game of Blackjack?") == 'y':
+def main():
+    
     clear()
-    play_blackjack()
+    print(blackjack_logo)
+
+    while input("Play a game of Blackjack?") == 'y':
+        clear()
+        play_blackjack()
+
+#---------------------------------------------------------
+if __name__ == "__main__":
+    main()
