@@ -3,8 +3,8 @@ import requests
 import smtplib
 import time
 
-MY_LAT = 40.8 # Your latitude
-MY_LONG = -96.8 # Your longitude
+MY_LAT = 0 # Your latitude
+MY_LONG = 0 # Your longitude
 MY_EMAIL = "my_email@domain.com"
 MY_PASSWORD = "myP@$$w0rD"
 
