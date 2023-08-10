@@ -64,24 +64,28 @@ class PomodoroTimerView():
         self.reps = 0
 
     #---------------------------------------------------------------------
-    def count_down(self, count):
+    # Accepts a number of seconds to start the timer at, then calls itself using after()
+    # after 1 second has passed, to decrement the timer. When timer is at 0, handles UI changes.
+    #---------------------------------------------------------------------
+    def count_down(self, seconds):
 
-        count_min = math.floor(count / 60)
-        count_sec = count % 60
+        timer_min = math.floor(seconds / 60)
+        timer_sec = seconds % 60
 
-        if count_min == 0:
-            count_min = ""
+        if timer_min == 0:
+            timer_min = ""
+        if(timer_sec < 10):
+            timer_sec = f"0{timer_sec}"
 
-        if(count_sec < 10):
-            count_sec = f"0{count_sec}"
-
-        self.canvas.itemconfig(self.timer_text, text=f"{count_min}:{count_sec}")
-        if count > 0:
-            self.timer = self.window.after(1000, self.count_down, count - 1)
+        self.canvas.itemconfig(self.timer_text, text=f"{timer_min}:{timer_sec}")
+        if seconds > 0:
+            self.timer = self.window.after(1000, self.count_down, seconds - 1)
         else:
             self.start_timer()
             marks = ""
             work_sessions = math.floor(self.reps/2)
             for _ in range(work_sessions):
+                # will keep adding ✔s indefinitely. One thought is to have this reset the reps when its at 4
+                # since the pomodoro method will actually reset itself every 4 cycles.  
                 marks += "✔"
             self.check_marks.config(text=marks)

@@ -3,7 +3,7 @@ from pomodoro_timer_view import PomodoroTimerView
 
 #-----------------------------------------------------------------------
 def main():
-    pom_view = PomodoroTimerView()
+    _ = PomodoroTimerView()
     
 #-----------------------------------------------------------------------
 if __name__ == "__main__":
